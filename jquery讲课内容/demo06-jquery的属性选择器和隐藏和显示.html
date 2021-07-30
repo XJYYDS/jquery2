@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <p>世上再无张显宗,无人爱我岳琦罗</p>
+    <p style="display: none;">世上再无李云龙,无缘轰我李秀芹 横批: 老李! 开炮 </p>
+    <input type="button" name="show" value="点我显示(开炮)" />
+    <input type="button" name="hidd" value="点我隐藏" />
+
+
+    <script>
+            $(function(){
+                $("input[name='show']").click(function() {
+                   // 选中 隐藏的 标签, 让其 显示
+                  // $('p:eq(1):hidden').show();
+                  $('p+p:hidden').show();
+                })
+
+                $("input[name='hidd']").click(function() {
+                 // 选中 显示的 标签, 让其 隐藏  // 练习: 只让  李云龙这一行的代码 显示和隐藏, 标签上面不许加属性 
+                   $('p+p:visible').hide();
+                 // $('p:eq(1):visible').hide();
+                })
+            })
+
+
+    </script>
+</body>
+
+</html>

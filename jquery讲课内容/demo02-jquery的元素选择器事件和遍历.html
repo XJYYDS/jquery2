@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+        <h1>目的:获取每一个 input中的 值 jquery的取值和遍历</h1>
+        用户名1： <input id="myinput" type="text"><br>
+        用户名2： <input id="myinput1" type="text"><br>
+        用户名3： <input id="myinput2" type="text"><br>
+        简介： <textarea></textarea>
+        <input type="button" value="点击" onclick="myclick()">
+        <input type="button" value="点击" onclick="myclick1()">
+
+
+        <script>
+                // 如果单纯只是点击(xx)事件,可以不写入口函数
+                // each 的 第一种写法
+                function myclick(){
+                        // 遍历所有的 input 元素, 对其 取值
+                     var inputs=   $("input");
+                     inputs.each(function(index, value) { // each 方法 是遍历  jq的元素的. 很重要!!!!
+                       //  console.log(index); // 索引
+                     //  console.log(value); // 元素
+                      //    console.log( $(this)  ) // 很重要. $(this) 指代当前索引的元素
+                       console.log( $(this).val()  )
+                     })
+
+                };
+                // 第二种写法
+                function myclick1(){
+                    $.each( $("input"), function(index, value) {
+
+                            console.log(index);
+                            console.log(value);
+                            console.log( $(this).val()  )
+
+                    })
+                }
+                
+
+        </script>
+
+
+</body>
+</html>

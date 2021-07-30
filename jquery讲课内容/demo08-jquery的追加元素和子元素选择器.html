@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <style>
+        .fire{
+            background-color: red;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <ul>
+        <li>大娃</li>
+        <li>二娃</li>
+        <li>三娃</li>
+        <li>四娃</li>
+        <li>五娃</li>
+        <li>六娃</li>
+        <li>七娃</li>
+    </ul>
+    <input type="button" value="点击一下 追加一个娃娃" id="appendBtn">
+    <input type="button" value="子元素选择器之 查找 第几个 儿子 类似 eq  " id="childBtn">
+    <input type="button" value="删除元素 " id="delBtn">
+    <input type="button" value="清空标签下的所有元素  " id="emptyBtn">
+    <input type="button" value="给四娃添加一个背景色  " id="cssBtn">
+    <input type="button" value="给四娃删除一个背景色  " id="delCssBtn">
+    <input type="button" value="给五娃前面加个孙悟空  " id="beforeBtn">
+    <input type="button" value="给五娃后面加个唐僧  " id="afterBtn">
+
+
+<script>
+
+    $(function(){
+        // 追加 娃娃 
+        $("#appendBtn").click(function() {
+            // 第一步. 构建一个 jquery dom 元素
+         var liDom=   $("<li>娃娃</li>");  // 这样叫做 构建 jquery的dom元素
+        // $("ul").append(liDom); // 追加只末尾加
+        // liDom.appendTo("ul");    // 理解 , append 和 appendTo 的区别
+        //   $("ul").prepend(liDom);  // 前面追加
+               liDom.prependTo("ul")  // 前面追加
+        });
+        // 子元素选择器讲解 获取第几个元素
+        $("#childBtn").click(function() {
+            // 获取 第一 li 元素
+            console.log( $("ul li:eq(0)")  )
+            console.log( $("ul li:first-child")   )
+            console.log( $("ul li:first")   )
+            //获取  最后一个元素
+            console.log("--------------------------")
+            console.log(  $("ul li:last")   )
+            console.log(  $("ul li:last-child")   )
+            // 获取 指定元素 如: 第三个
+            console.log("--------------------------")
+            console.log( $("ul li:eq(2)")  )
+            console.log( $("ul li:nth-child(1)")  )  // 注意, nth 从1开始
+
+        })
+        // 删除元素
+        $("#delBtn").click(function() {
+            // 比如删除第一个元素
+           // $("ul li:first").remove();
+           $("ul li:eq(2)").remove();
+        })
+        // 清空 一个标签下的所有元素
+        $("#emptyBtn").click(function() {
+            $("ul").empty();
+        })
+        // 给元素加属性
+        $("#cssBtn").click(function() {
+            $("ul li:eq(3)").addClass('fire');
+        })
+        // 删除一个属性
+        $("#delCssBtn").click(function() {
+            $("ul li:eq(3)").removeClass('fire')
+        })
+        // 给指定元素前面加入 元素
+        $("#beforeBtn").click(function() {
+            $("ul li:eq(4)").before(  $("<li>孙悟空</li>")  )
+        })
+        // 给指定元素后面加入 元素
+        $("#afterBtn").click(function() {
+            $("ul li:eq(4)").after(  $("<li>唐僧</li></li>")  )
+        })
+
+    })
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <style type="text/css">
+        div {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .divcss {
+            color: blue;
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+        <div>唐僧</div>
+		<div class="divcss">孙大胜</div>
+		<div class="divcss">朱二生</div>
+		<div class="divcss"> <span style="color: red;">沙悟净</span> </div>
+		<input type="button" value="点击" onclick="myclick()">
+
+
+    <script>
+
+            function myclick(){
+                $.each($("div"), function(index, value) {
+                        var divtext=  $(this).text();   // 获取文本  .text("填充文本")
+                      // var divtext=  $(this).html();   // 获取文本  .html("填充文本")
+                       console.log(divtext)
+                });
+            }
+
+    </script>
+
+
+</body>
+</html>

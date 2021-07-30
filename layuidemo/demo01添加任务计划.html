@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>开始使用 layui</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <style type="text/css">
+        .Div {
+            border: 3px ridge rgba(37, 34, 34, 0.605);
+            margin: 0 auto;
+            text-align: center;
+            width: 650px;
+            /* 设置最小高度 */
+            min-height: 500px;
+            /* 上右下左    点线  实线   双线  虚线                 */
+            border-style: dotted solid double dashed;
+
+        }
+
+        /* tr {
+            border-bottom: solid;
+        } */
+
+        h5 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 20px;
+
+        }
+
+        .input-group {
+            margin: 0 auto;
+        }
+
+        #exampleInputAmount {
+            margin-right: 15px;
+            width: 460px;
+        }
+
+        #thead1 tr th {
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- jQuery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./layui/layui.js"></script>
+    <!-- 你的 HTML 代码 -->
+    <script>
+        //获取当前年月日几点几分几秒星期几并打印
+        function getTimer() {
+            var date = new Date()
+            var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+            var year = date.getFullYear()
+            var month = date.getMonth() + 1
+            var datee = date.getDate()
+            var day = date.getDay()
+            var time = year + '年' + month + '月' + datee + '日 ';
+            function getTimerr() {
+                var time = new Date()
+                var hour = time.getHours()
+                hour = hour < 10 ? '0' + hour : hour
+                var minute = time.getMinutes()
+                minute = minute < 10 ? '0' + minute : minute
+                var second = time.getSeconds()
+                second = second < 10 ? '0' + second : second
+                return hour + ':' + minute + ':' + second
+            }
+            return time + ' ' + getTimerr() + ' ' + week[day]
+        }
+        //创建tr
+        function ad(params) {
+            //获取输入的任务计划
+            var plan = $(params).prev().val();
+            //获取当前时间
+            var dateTime = getTimer();
+            //创建一行tr
+            var Tr = $(
+                '<tr>' +
+                ' <td class="col">' + plan + '</td>' +
+                ' <td class="col">' + dateTime + '</td> ' +
+                ' <td> ' +
+                '   <div> ' +
+                '       <button type="button" class="btn btn-default" onclick="co(this)">button</button> ' +
+                '       <button type="button" class="btn btn-default" onclick="rm(this)">delete</button> ' +
+                '   </div> ' +
+                ' </td> ' +
+                '</tr>'
+            );
+            //追加获取的tr到tbody
+            $('.layui-table tbody').prepend(Tr);
+            //清空input 文本框中的内容
+            $(params).prev().val('');
+        }
+        //remove() 移除被选元素(包括所有的文本和子节点，以及被选元素的数据和事件)
+        //parent() 返回被选元素的直接父元素。
+        function rm(params) {
+            $(params).parent().parent().parent().remove();
+        }
+        //找到类名为 'col' 的元素,并设置CSS样式   children() 返回被选元素的所有直接子元素。
+        function co(params) {
+            $(params).parent().parent().parent().children('.col').css({ color: 'rgb(255, 25, 25)', 'text-decoration': 'line-through' });
+        }
+    </script>
+
+    <h5>贾礼博jq作业</h5>
+    <div class="Div">
+        <p><b>任务列表</b></p>
+
+        <div class="input-group">
+            <input type="text" class="btn btn-default" id="exampleInputAmount" placeholder="输入要添加的任务">
+            <button type="button" class="btn btn-info" id="btn1" onclick="ad(this)">add</button>
+        </div>
+
+        <div>
+            <table class="layui-table" lay-even lay-skin="line" lay-size="lg">
+                <colgroup>
+                    <col width="150">
+                    <col>
+                </colgroup>
+                <thead id="thead1">
+                    <tr>
+                        <th>任务</th>
+                        <th>时间</th>
+                        <th>选择</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td class="col">敲代码</td>
+                        <td class="col">Data</td>
+                        <td>
+                            <div>
+                                <button type="button" class="btn btn-default" onclick="co(this)">button</button>
+                                <button type="button" class="btn btn-default" onclick="rm(this)">delete</button>
+                            </div>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+
+</html>

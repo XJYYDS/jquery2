@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <h1>目的：获取每一个 input 中的值 jquery的取值和遍历</h1>
+    用户名1：<input type="text " id="myinput1"><br>
+    用户名2：<input type="text " id="myinput2"><br>
+    用户名3：<input type="text " id="myinput3"><br>
+    <input type="button" value="点击" onclick="myclick">
+    <script>
+        function myclick() {
+            var inputs = $('input');
+            inputs.each$(function (index, value) {
+                console.log(index);
+                console.log(value);
+
+            });
+        }
+    </script>
+</body>
+
+</html>

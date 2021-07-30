@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <h1 class="text-center">Hello World</h1>
+
+    <!-- jQuery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+        $(function () {
+            // jquery 使用过滤选择器 达到 奇数偶数 变色 ,,同时也学了 jquery操做css
+            $("table tr:even ").css('background-color', 'red');
+            $("table tr:odd ").css('background-color', 'green');
+            // 拿去指定的
+            $("#eqBtn").click(function () {
+                var timo = $("table tr:eq(2) td:eq(1) ").text();
+                console.log(timo)
+            })
+            // 拿取 第一个
+            $("#firstBtn").click(function () {
+                var first = $('table tr:first').html();
+                console.log(first)
+            })
+            // 拿取 最后一个
+            $("#lastBtn").click(function () {
+                var last = $('table tr:last').text();
+                console.log(last)
+            })
+
+
+        })
+
+
+    </script>
+
+    <table border="1">
+        <tr>
+            <td><input type="checkbox" value="1"></td>
+            <td>豹女</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="2"></td>
+            <td>龙女</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="3"></td>
+            <td>提摩</td>
+            <td>320</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="4"></td>
+            <td>琴女</td>
+            <td>350</td>
+        </tr>
+    </table>
+    <input type="button" value="点击" id="eqBtn">
+    <input type="button" id="btn1" value="全选" />
+    <input type="button" id="btn2" value="全不选" />
+    <input type="button" id="btn4" value="反选" />
+
+    <script type="text/javascript">
+        function checkAll() {
+            var checkAllEle = document.getElementById("checkAll");
+            var checkOnes = document.getElementsByName("checkOne");
+            if (checkAllEle.checked == true) {
+                for (var i = 0; i < checkOnes.length; i++) {
+                    checkOnes[i].checked = true;
+                }
+            } else {
+                for (var i = 0; i < checkOnes.length; i++) {
+                    checkOnes[i].checked = false;
+                }
+            }
+        }
+        jQuery(function ($) {
+            //全选 
+            $("#btn1").click(function () {
+                $("input[name='checkbox']").attr("checked", "true");
+            })
+            //取消全选 
+            $("#btn2").click(function () {
+                $("input[name='checkbox']").removeAttr("checked");
+            })
+            //选中所有基数 
+            $("#btn3").click(function () {
+                $("input[name='checkbox']:even").attr("checked", "true");
+            })
+            //选中所有偶数 
+            $("#btn6").click(function () {
+                $("input[name='checkbox']:odd").attr("checked", "true");
+            })
+            //反选 
+            $("#btn4").click(function () {
+                $("input[name='checkbox']").each(function () {
+                    if ($(this).attr("checked")) {
+                        $(this).removeAttr("checked");
+                    } else {
+                        $(this).attr("checked", "true");
+                    }
+                })
+            })
+            //或许选择项的值 
+            var aa = "";
+            $("#btn5").click(function () {
+                $("input[name='checkbox']:checkbox:checked").each(function () {
+                    aa += $(this).val()
+                })
+                document.write(aa);
+            })
+        })
+    </script>
+</body>
+
+</html>

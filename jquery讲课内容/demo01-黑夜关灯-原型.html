@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h2>第五六回 亲传武功</h2>
+            <h3>需求: 晚上20点到早上06点后, 背景为黑色,字体为更大白色,反之亦然</h3>
+            <button>关灯</button>
+            <button>开灯</button>
+            <button>讲完点击事件, 用这个做练习 , 包括 用一个 按钮切换  开灯 关灯</button>
+            <button>jquery 可以 操作 css    $("p").css({ color: "#ff0011", background: "blue" });   </button>
+        </div>
+
+        <script>
+            $(function () {
+                // jquery 的选择器:  1) 标签(元素)选择器: $('div')    2) id选择器: id唯一的 $('#contenDiv') 
+                // jquery 操作css:    在选择器后面点css(json)   例: $("p").css({ color: "#ff0011", background: "blue" }); 
+
+               console.log( $('p') );  //  3个p   注意: 参数里只能写 数据, 不要  name + name  
+                
+              // $('p').css({background:'black',color:'snow','font-size':'30px'});  // 练习 ,  让字体变粗, 变大点 16px   元素选择器 + css 
+
+              $("#contenDiv").css({background:'black',color:'snow','font-size':'30px'});  // id 选择器 + css
+
+            });
+        
+        
+        </script>
+
+            <p>nihao</p>
+
+        <div id="contenDiv">
+            <p>
+                洪安通自觉有些失态，咳嗽一声，庄容说道：「白龙使年纪小，与人动手，极易给人抓住後颈，一把提起。夫人，你就将我当白龙使施施。」洪夫人笑道：「你可不能弄痛人家。」洪安通道：「这个自然。」
+            </p>
+            <p>
+                洪夫人左手一伸，抓住他身子提了起来。洪安通身材魁梧，少说也有二百斤重。洪夫人娇怯怯的模样，居然毫不费力，一把便将他提起。洪安通道：「看仔细了!」左手慢慢反转，在夫人左腋底下搔了一把。洪夫人格格一笑，身子软了下来。洪安通左手拿住她腋下，右手慢慢回转，抓住她领口，缓缓举起她身子，过了自己头顶，轻轻往外一摔。洪夫人身子一着地，便淌了出去，如在水面滑溜飘行。
+            </p>
+            <p>
+                他跟着俯伏地下，洪夫人伸足重重踏住他後腰，右手取过倚在门边的门闩，架在他颈中，娇声笑道：「你投不投降?」洪安通笑道：「我早就投降了!我向你磕头。」双腿一缩，似欲跪拜，右臂却慢慢的横掠而出，碰到门闩，喀喇一声响，门闩竟尔断折。韦小宝吓了一跳，他手臂若是急速挥出，以他武功，击断门闩并不希奇，但如此缓缓的和门闩一碰，居然也将门闩震断，却是大出意料之外。洪安通道：「你缩腿假装向人叩头，乘势取出匕首。你手上虽无我的内力，但你的匕首锋利异常，敌人任何兵器都可一削而断。」他一面说，一个筋斗，向洪夫人胯下钻去。
+            </p>
+        </div>
+    </div>
+
+
+
+
+ 
+</body>
+
+</html>

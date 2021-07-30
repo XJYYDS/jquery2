@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <h1 class="text-center">Hello World</h1>
+
+    <!-- jQuery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script>
+        $(function () {
+            $("input[name='show']").click(function () {
+                //显示
+                $('p:hidden:first').show();
+            })
+            $("input[name='hidd']").click(function () {
+                //隐藏
+                $('p:visible:last').hide();
+            })
+        })
+// HTML部分：
+
+// 元素1
+
+// 元素2
+
+// 元素3
+
+// 元素4
+
+// 元素5
+
+// 取倒数第二个p元素
+
+// $("div p").eq(-2)
+
+//取第一个p元素
+//$("div p").first()
+
+// 取最后一个p元素
+// $("div p").last()
+    </script>
+
+
+    <p>世上再无张显宗,无人爱我岳琦罗</p>
+    <p style="display: none;">世上再无李云龙,无缘轰我李秀芹 横批: 老李! 开炮 </p>
+    <input type="button" name="show" value="点我显示(开炮)" />
+    <input type="button" name="hidd" value="点我隐藏" />
+
+
+
+</body>
+
+</html>

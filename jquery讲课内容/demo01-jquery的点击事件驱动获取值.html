@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+                    <!-- 快速向下复制一行  alt + shift + 下箭头 -->
+                    <!-- 快速删除一行  ctrl + shift + K -->
+        <div>
+                <span>请输入姓名:</span> <input type="text" name="" id="uname"> <br/>
+                <span>请输入密码:</span> <input type="password" name="" id="upwd" class="pwd"> <br/>
+                <span>请重复输入密码:</span> <input type="password" name="" id="cpwd" class="pwd"> <br/>
+                <input type="button" name="" id="ureg" value="注册">  
+        </div>
+
+
+
+    <script>
+
+
+        $(function () {
+
+            // 事件驱动, 那么第一步,就要找到,那个元素(按钮), 第二步,给予这个按钮xx事件 , 第三步, 取值(数据),发送ajax ,等等,改变元素样式等等都行
+            // jq 能省则省 
+
+            $('#ureg').click(function() {
+                    // id 选择器
+                     var uname= $("#uname").val();
+                     var upwd=  $('#upwd').val(); 
+                     console.log(uname)  
+                     console.log(upwd)  
+                    // class 选择器
+                      var pwd =  $(".pwd") ;
+                      console.log( pwd )
+                    // element 元素 / 标签选择器 
+                    var span = $("span");
+                    console.log( span )
+                    // 并列选择器
+                    var binglie = $("#uname , #upwd")
+                    console.log(binglie)
+                    // 通配符选择器
+                    var  all= $("*")
+                    console.log(all)
+
+            });
+
+
+        })
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

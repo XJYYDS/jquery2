@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+
+    <form action="">
+        用户名：<input id="username" name="usename" type="text"><br>
+        密码：  <input name="password" type="password"><br>
+        <select>
+            <option>足球111</option>
+            <option>篮球111</option>
+        </select>
+        <div>
+            密码1：<input name="p1" type="text"><br>
+        </div>
+        <select>
+            <option>足球555</option>
+            <option>篮球555</option>
+        </select>
+        <input type="button" value="点击" onclick="myClick()">
+       <!-- <textarea></textarea>  加上显示不出来，必须紧邻-->
+        <select>
+            <option>足球</option>
+            <option>篮球</option>
+        </select>
+
+        <select>
+            <option>男</option>
+            <option>女</option>
+        </select>
+    </form>
+    <input name="usename" type="text">
+
+    <script>
+                function myClick(){
+                            
+                      //  console.log(  $("input + select ")  )  // + 代表 挨着的弟弟!!!
+                      console.log(  $("input ~ select ")  )  // ~ 代表 和他 所有的  哥哥和弟弟 都有
+
+
+                }
+    </script>
+
+
+
+</body>
+
+</html>
