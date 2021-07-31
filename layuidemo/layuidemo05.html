@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- jQuery -->
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="./layui/layui.js"></script>
+        <link rel="stylesheet" href="./layui/css/layui.css">
+    </head>
+    <body>
+        <h1 class="text-center">Hello World</h1>
+
+      <!-- layui常用内置模块总共有18个 常用的有table form dropdown upload layer ....
+        内置模块包含封装了 一些js的功能 也就是 模块 =css+js
+
+        required  lay-verify="required" 是不能为空, 必须填写
+        -->
+        <div class="layui-fluid"> 
+
+            <div class="layui-row"> 
+                <form class="layui-form" action="" lay-filter="testform"> 
+                    <div class="layui-form-item">
+                        <label class="layui-form-label-col">账号</label>
+                        <div class="layui-input-inline">    
+                          <input type="text" name="username" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                        </div>
+                      </div>
+    
+    
+                      <div class="layui-form-item">
+                        <label class="layui-form-label-col">密码</label>
+                        <div class="layui-input-inline">    
+                          <input type="password" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        </div>
+                      </div>
+                      
+                      <div class="layui-form-item">
+                        <label class="layui-form-text">记住密码</label>
+                        <div class="layui-input-block">
+                          <input type="checkbox" name="isRemeber" lay-skin="switch" lay-text="记住|不记住">
+                        </div>
+                      </div>
+    
+    
+                      <div class="layui-form-item">
+                        <div class="layui-input-block">
+                          <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                      </div>
+                </form> 
+            
+    
+            </div>
+          </div>   
+          <!-- !-- layui 如何使用内置模块 -->
+          <script>
+                //注意 一个html就写一个 layui.use 就可以了
+                // use 里有2个参数,第一个数组,第二个是方法
+              layui.use(['form'], function(args){ 
+                var form = layui.form;
+              }); 
+layui.use(['layer','jquery','element','form'], function(args){
+  var $ = layui.jquery,layer=layui.layer,element=layui.element,form=layui.form;
+  
+}); 
+              render: function() {
+                 {/* 抽屉内容 */}
+                  const navigationView = (
+                    <View style={{flex: 1, backgroundColor: '#fff'}}>
+                      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+                    </View>
+                  )
+                  return (
+                    <DrawerLayoutAndroid
+                      drawerLockMode="可以响应打开和关闭的手势操作"
+                      drawerWidth={300}
+                      drawerPosition={指定抽屉可以从屏幕的哪一边滑入}
+                      keyboardDismissMode="拖拽的过程中是否要隐藏软键盘"
+                      renderNavigationView={() => navigationView}
+                      onDrawerClose ={()=>{关闭之后回调}}
+                      onDrawerOpen={()=>{打开之后回调}}
+                      onDrawerSlide={()=>{产生交互回调}}
+                      onDrawerStateChanged={()=>{当抽屉的状态变化时回调(idle:空闲,dragging:拖拽中,settling:停靠中)}}>
+                      <View style={{flex: 1, alignItems: 'center'}}>
+                        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
+                        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+                      </View>
+                    </DrawerLayoutAndroid>
+                  )
+              }
+          </script>
+    
+
+
+
+
+fo    </body>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,29 @@
+* {
+	margin:0;
+	padding:0;
+}
+#main {
+	width:100%;
+}
+#main h2 {
+	text-align:center;
+	margin-top:50px;
+}
+#main canvas {
+	display:block;
+	margin:30px auto;
+	box-shadow:5px 5px 5px #c3c3c3,-5px -5px 10px #eeeeee;
+	background:rgb(221,191,163);
+}
+#restart {
+	width:100px;
+	height:40px;
+	background:#ccc;
+	color:#fff;
+	font-size:20px;
+	text-align:center;
+	line-height:40px;
+	margin:auto;
+	cursor:pointer;
+	display:none;
+}
