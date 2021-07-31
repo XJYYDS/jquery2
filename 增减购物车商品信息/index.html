@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>增减购物车商品信息</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+
+    <!-- jQuery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="./js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        * {
+            font-size: 12px;
+        }
+    </style>
+    </head>
+
+    <script>
+        // 全选
+        function checkAll(params) {
+            $.each($('table tr td input'), function (index, value) {
+                $(this).prop('checked', $('#checkall').prop('checked'));
+            })
+
+        }
+        // 删除
+        function del(th) {
+            var s = $(th).parent().parent().remove();
+        }
+
+        function on(p) {
+            var sa = $('#san').text();
+            var an = $('#phone').text();
+            var a = parseFloat($(p).parent().prev().text());
+            var sl = parseInt($(p).parent().find('input').val())
+            var ssd = $(p).parent().parent().children('td').eq(1).children('a').text()
+            var t = sa == ssd
+            console.log(sa + ssd);
+            console.log(t);
+
+            if (t) {
+                var s = 39.2 * sl
+                $(p).parent().prev().html(parseFloat('32.9') * sl)
+            } else {
+                $(p).parent().prev().html(parseFloat('3339') * sl)
+            }
+
+        }
+        // 添加
+        function add(th) {
+            //prev() 方法返回被选元素的前一个同级元素。
+            var sl = $(th).prev().val()
+            //parseFloat() 函数可解析一个字符串，并返回一个浮点数。
+            $(th).prev().val(parseFloat(sl) + 1)
+            on(th)
+        }
+        //全选 删除
+        function rm(params) {
+            $.each($('table tr td input'), function (index, value) {
+                if ($(this).prop('checked')) {
+                    del(this)
+                }
+
+            })
+        }
+        // 减少
+        function less(th) {
+
+            var sl = $(th).next().val()
+
+            if (sl >= 1) {
+                $(th).next().val(parseFloat(sl) - 1)
+                on(th)
+            }
+
+        }
+        // 随机添加一个商品
+        function ad(th) {
+            var s = parseInt(Math.random() * 2) + 1
+
+            var v = $('table tr').eq(s).children('td').eq(3).find('input').val()
+            var vv = parseInt(v) + 1
+            $('table tr').eq(s).children('td').eq(3).find('input').val(vv)
+            on($('table tr').eq(s).children('td').eq(3).find('input'))
+
+
+
+        }
+    </script>
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <th><input type='checkbox' onclick="checkAll(this)" id="checkall" />全选</th>
+            <th>商品信息</th>
+            <th>宜美惠价</th>
+            <th>数量</th>
+            <th>操作</th>
+
+        </tr>
+
+        <tr class="tr_0">
+            <td>
+                <input name="" type="checkbox" value="" />
+            </td>
+            <td>
+                <img src="images/sang.gif" class="products" onclick="add(this)" /><a id='san' href="#">天堂雨伞</a>
+            </td>
+            <td>32.9
+            </td>
+            <td>
+                <img src="images/subtraction.gif" width="20" height="20" onclick="less(this)" />
+                <input type="text" class="quantity" value="1" onchange="on(this)" />
+                <img src="images/add.gif" width="20" height="20" onclick="add(this)" />
+            </td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-primary" onclick="del(this)">删除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="" type="checkbox" value="" />
+            </td>
+            <td>
+                <img src="images/iphone.gif" class="products" onclick="add(this)" /><a id='phone'
+                    href="#">苹果手机iphone5</a>
+            </td>
+            <td>3339
+            </td>
+            <td>
+                <img src="images/subtraction.gif" width="20" height="20" onclick="less(this)" />
+                <input type="text" class="quantity" value="1" onchange="on(this)" />
+                <img src="images/add.gif" width="20" height="20" onclick="add(this)" />
+            </td>
+            <td>
+                <button type="button" class="layui-btn layui-btn-primary" onclick="del(this)">删除</button>
+            </td>
+        </tr>
+
+    </table>
+
+    <button type="button" class="layui-btn layui-btn-primary" onclick="ad(this)">添加</button>
+    <button type="button" class="layui-btn layui-btn-primary" onclick="rm(this)">删除</button>
+</body>
+
+</html>
